@@ -20,7 +20,41 @@
 }
 
 body {
-  background: var(--background);
+  background-color: black;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-gradient-out {
+  background-image: 
+    radial-gradient(circle at 10% 100%, rgba(120, 0, 255, 0.5), transparent 50%),
+    radial-gradient(circle at 100% 20%, rgba(120, 0, 255, 0.5), transparent 30%);
+  background-repeat: no-repeat;
+}
+
+/* Works in Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #a855f7;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 #f3f4f6;
+}
+
+
+
