@@ -10,6 +10,7 @@ import PasswordStep from "../../components/Auth/PasswordStep";
 import EmailStep from "../../components/Auth/EmailStep";
 import SignupStep from "../../components/Auth/SignupStep";
 import axios from "axios";
+import { api } from "../env/api";
 
 // const usersData = [
 //     {
@@ -50,11 +51,11 @@ function SignInPage() {
     }
 
     try {
-      const response = await axios.post("/user/getByIdentifier", {
-        username: email,
+      const response = await axios.post(`${api}/user/getByIdentifier`, {
+        identifier: email,
       });
 
-      if (response.data.success === true && response.data.data) {
+      if (response.data.success === true ) {
         setError("");
         setStep("password");
       } else {
