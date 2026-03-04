@@ -55,7 +55,7 @@ function SignInPage() {
         identifier: email,
       });
 
-      if (response.data.success === true ) {
+      if (response.data.success === true) {
         setError("");
         setStep("password");
       } else {
@@ -66,25 +66,23 @@ function SignInPage() {
     }
   };
 
-  const handlePasswordSubmit = async() => {
+  const handlePasswordSubmit = async () => {
     if (!userPassword) {
       setPasswordError("Enter a password");
       return;
     }
     try {
-        const response = await axios.post(`${api}/api/authenticate`, {
-            username: userInput,
-            password: userPassword
-        });
-        if (response.data.success === true) {
-            localStorage.setItem("jwtToken",response.data.jwtToken)
-            router.push("/dashboard");
-        } else {
-            setPasswordError("Invalid credentials");
-        }
-    } catch (error) {
-        
-    }
+      const response = await axios.post(`${api}/api/authenticate`, {
+        username: userInput,
+        password: userPassword,
+      });
+      if (response.data.success === true) {
+        localStorage.setItem("jwtToken", response.data.jwtToken);
+        router.push("/dashboard");
+      } else {
+        setPasswordError("Invalid credentials");
+      }
+    } catch (error) {}
   };
 
   const handleSwitch = () => {
