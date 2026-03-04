@@ -80,9 +80,11 @@ function SignInPage() {
         localStorage.setItem("jwtToken", response.data.jwtToken);
         router.push("/dashboard");
       } else {
-        setPasswordError("Invalid credentials");
+        setPasswordError(response.data.message || "Invalid credentials");
       }
-    } catch (error) {}
+    } catch (error) {
+      setPasswordError("Request failed, please try again");
+    }
   };
 
   const handleSwitch = () => {
