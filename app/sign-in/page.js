@@ -51,7 +51,7 @@ function SignInPage() {
     }
 
     try {
-      const response = await axios.post(`${api}/user/getByIdentifier`, {
+      const response = await axios.post(`${api}/api/user/getByIdentifier`, {
         identifier: email,
       });
 
